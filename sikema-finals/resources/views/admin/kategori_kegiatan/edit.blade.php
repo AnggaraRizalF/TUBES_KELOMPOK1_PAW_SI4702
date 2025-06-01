@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <form action="{{ route('admin.kategori-kegiatan.update', $kategoriKegiatan->id) }}" method="POST">
                         @csrf
-                        @method('PUT') {{-- Penting untuk update --}}
+                        @method('PUT') 
 
                         <div class="mb-4">
                             <x-input-label for="nama_kategori" :value="__('Nama Kategori')" />
