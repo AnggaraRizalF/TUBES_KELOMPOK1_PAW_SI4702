@@ -97,7 +97,7 @@
                 </div>
                 {{-- Anggota Tim 4 --}}
                 <div class="bg-gray-800 bg-opacity-70 p-6 rounded-lg shadow-xl border border-gray-700 transform hover:scale-105 transition-all duration-300">
-                    <img src="{{ asset('images/Faadhil.jpg') }}" alt="Anggota Tim 4" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-red-500 shadow-md"> {{-- Mengubah images/.jpg menjadi images/Faadhil.jpg --}}
+                    <img src="{{ asset('images/Fadhil.jpg') }}" alt="Anggota Tim 4" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-red-500 shadow-md"> {{-- Mengubah images/.jpg menjadi images/Faadhil.jpg --}}
                     <h3 class="text-xl font-bold text-white mb-1">Faadhil Al Ghifari</h3>
                     <p class="text-gray-400 text-sm">102022300425</p>
                 </div>
