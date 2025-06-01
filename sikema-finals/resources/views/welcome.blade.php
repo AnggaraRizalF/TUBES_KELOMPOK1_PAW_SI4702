@@ -7,22 +7,13 @@
         <title>SIKEMA | Welcome</title>
 
         <link rel="preconnect" href="https://fonts.bunny.net">
-        {{-- Menggunakan font Instrument Sans dan Inter --}}
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600|inter:400,700&display=swap" rel="stylesheet" />
 
-        {{-- Ini adalah cara yang benar untuk memuat CSS dan JS dari Vite/Mix --}}
-        {{-- Pastikan kamu menjalankan 'npm install', 'npm run dev', atau 'npm run build' --}}
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        {{-- Kamu bisa menambahkan CSS kustom tambahan di sini jika ada, tapi lebih baik di resources/css/app.css --}}
         <style>
-            /* Kustomisasi kecil jika diperlukan yang tidak bisa diatasi Tailwind */
-            /* body {
-                font-family: 'Instrument Sans', sans-serif;
-            } */
         </style>
     </head>
-    {{-- Background gradient untuk body (merah terang ke abu gelap, lebih keren), teks default, dan layout flexbox --}}
     <body class="bg-gradient-to-br from-red-700 via-gray-900 to-black text-white flex flex-col min-h-screen items-center justify-center p-6 font-sans">
         <header class="w-full max-w-4xl text-right mb-6">
             @if (Route::has('login'))
@@ -46,10 +37,8 @@
             @endif
         </header>
 
-        {{-- Konten utama halaman selamat datang --}}
-        <main class="flex flex-col items-center justify-center text-center max-w-2xl mx-auto py-12 px-8 bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl rounded-[3rem] transform transition-all duration-700 ease-out scale-95 hover:scale-100 border border-gray-700"> 
+        <main class="flex flex-col items-center justify-center text-center max-w-2xl mx-auto py-12 px-8 bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl rounded-[3rem] transform transition-all duration-700 ease-out scale-95 hover:scale-100 border border-gray-700">
             <div class="mb-8">
-                {{-- Ganti path gambar ini dengan path logo Anda yang sesuai tema (putih untuk dark mode, atau logo umum) --}}
                 <img src="{{ asset('images/sikema_logo.png') }}" alt="SIKEMA Logo" class="block h-16 w-auto mx-auto mb-6 drop-shadow-lg" style="height: 64px;">
 
                 <h1 class="text-5xl font-extrabold text-red-400 mb-4 tracking-tight drop-shadow-md">Selamat Datang di <br><span class="block text-red-200 mt-2">SIKEMA</span></h1>
