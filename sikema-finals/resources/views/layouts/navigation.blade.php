@@ -4,7 +4,7 @@
             <div class="flex">
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('images/logo_sikema_white.png') }}" alt="SIKEMA Logo" class="block h-9 w-auto fill-current text-gray-200" style="height: 40px; width: 40px;">
+                        <img src="{{ asset('images/sikema_logo.png') }}" alt="SIKEMA Logo" class="block h-9 w-auto fill-current text-gray-200" style="height: 40px; width: 40px;">
                     </a>
                 </div>
 

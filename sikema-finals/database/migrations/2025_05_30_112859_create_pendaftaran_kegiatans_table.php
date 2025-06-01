@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('bukti_pembayaran')->nullable();
             $table->text('catatan_admin')->nullable();
             $table->unique(['user_id', 'kegiatan_id']);
+            $table->timestamps();
         });
     }
 
