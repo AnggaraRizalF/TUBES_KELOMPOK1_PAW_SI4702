@@ -9,19 +9,13 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600|inter:400,700&display=swap" rel="stylesheet" />
 
-    {{-- Ini adalah cara yang benar untuk memuat CSS dan JS dari Vite/Mix --}}
-    {{-- Pastikan kamu menjalankan 'npm install', 'npm run dev', atau 'npm run build' --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    {{-- Hapus blok <style> yang berisi fallback CSS yang sangat panjang --}}
-    {{-- Jika ada style kustom kecil, masukkan di resources/css/app.css --}}
 </head>
-{{-- Background gradient untuk body (merah terang ke abu gelap, lebih keren), teks default, dan layout flexbox --}}
 <body class="bg-gradient-to-br from-red-700 via-gray-900 to-black text-white flex flex-col min-h-screen items-center p-6 font-sans">
     <header class="w-full max-w-4xl text-right mb-6">
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">
-                {{-- Tombol untuk navigasi umum atau kembali ke Beranda --}}
                 <a href="{{ url('/') }}" class="px-5 py-2 text-sm font-medium text-white border border-gray-400 hover:border-gray-200 rounded-full transition duration-300 transform hover:-translate-y-0.5 shadow-md">
                     Beranda
                 </a>
@@ -44,7 +38,6 @@
         @endif
     </header>
 
-    {{-- Konten utama halaman Tentang Kami --}}
     <main class="flex flex-col items-center py-12 px-8 max-w-4xl mx-auto flex-grow text-white border-l border-r border-gray-700">
         <h1 class="text-5xl font-extrabold text-red-400 mb-8 tracking-tight drop-shadow-md text-center">Tentang Kami</h1>
 
@@ -63,14 +56,12 @@
         </section>
 
         <section class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mt-8 max-w-4xl mx-auto">
-            {{-- Kotak Visi Kami --}}
             <div class="p-6 rounded-lg border border-gray-700 bg-gray-800 bg-opacity-70 shadow-lg hover:bg-gray-700 hover:border-gray-600 transition-all duration-300">
                 <h2 class="text-2xl font-bold text-red-400 mb-3">Visi Kami</h2>
                 <p class="text-gray-300 leading-relaxed">
                     Menjadi platform terdepan yang dikenal karena <strong class="text-red-300">inovasi, keandalan, dan dampak positifnya</strong> dalam manajemen kegiatan kampus, mendukung pengembangan mahasiswa secara holistik.
                 </p>
             </div>
-            {{-- Kotak Nilai-Nilai Kami --}}
             <div class="p-6 rounded-lg border border-gray-700 bg-gray-800 bg-opacity-70 shadow-lg hover:bg-gray-700 hover:border-gray-600 transition-all duration-300">
                 <h2 class="text-2xl font-bold text-red-400 mb-3">Nilai-Nilai Kami</h2>
                 <ul class="list-disc list-inside text-gray-300 space-y-1">
