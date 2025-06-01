@@ -70,7 +70,6 @@
             </div>
         </main>
 
-        {{-- Footer --}}
         <footer class="mt-16 text-md text-gray-400 drop-shadow-sm">
             &copy; {{ date('Y') }} [SIKEMA. Kelompok 1].
         </footer>
