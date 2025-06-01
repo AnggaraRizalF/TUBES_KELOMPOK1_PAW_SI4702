@@ -13,8 +13,8 @@
                         {{ __('Kegiatan Mendatang / Sedang Berlangsung') }}
                     </h3>
 
-                    {{-- Daftar Kegiatan --}}
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        @forelse ($kegiatans as $kegiatan)
                             <div class="bg-gray-700 rounded-lg shadow-md overflow-hidden p-4">
                                 @if ($kegiatan->poster_kegiatan)
                                     <img src="{{ asset('storage/' . $kegiatan->poster_kegiatan) }}" alt="Poster Kegiatan" class="w-full h-48 object-contain rounded-md mb-4">
