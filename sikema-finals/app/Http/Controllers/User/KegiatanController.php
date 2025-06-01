@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Kegiatan;
-use Illuminate\Support\Carbon; 
+use Illuminate\Support\Carbon;
 class KegiatanController extends Controller
 {
     public function index(Request $request)
