@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('kegiatan_id')->constrained('kegiatans')->onDelete('cascade');
-            $table->enum('status_pendaftaran', ['pending', 'terdaftar', 'selesai', 'dibatalkan'])->default('pending'); 
+            $table->enum('status_pendaftaran', ['pending', 'terdaftar', 'selesai', 'dibatalkan'])->default('pending'); // <-- Hanya ada satu baris ini
             $table->string('bukti_pembayaran')->nullable();
-            $table->text('catatan_admin')->nullable(); 
+            $table->text('catatan_admin')->nullable();
             $table->timestamps();
 
-            
             $table->unique(['user_id', 'kegiatan_id']);
         });
     }
