@@ -47,10 +47,10 @@
         </header>
 
         {{-- Konten utama halaman selamat datang --}}
-        <main class="flex flex-col items-center justify-center text-center max-w-2xl mx-auto py-12 px-8 bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl rounded-[3rem] transform transition-all duration-700 ease-out scale-95 hover:scale-100 border border-gray-700"> {{-- Mengubah rounded-xl menjadi rounded-[3rem] untuk sudut yang lebih melengkung --}}
+        <main class="flex flex-col items-center justify-center text-center max-w-2xl mx-auto py-12 px-8 bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl rounded-[3rem] transform transition-all duration-700 ease-out scale-95 hover:scale-100 border border-gray-700"> 
             <div class="mb-8">
                 {{-- Ganti path gambar ini dengan path logo Anda yang sesuai tema (putih untuk dark mode, atau logo umum) --}}
-                <img src="{{ asset('images/sikema_logo.png') }}" alt="SIKEMA Logo" class="block h-16 w-auto mx-auto mb-6 drop-shadow-lg" style="height: 64px;"> {{-- Logo lebih besar dan di tengah --}}
+                <img src="{{ asset('images/sikema_logo.png') }}" alt="SIKEMA Logo" class="block h-16 w-auto mx-auto mb-6 drop-shadow-lg" style="height: 64px;">
 
                 <h1 class="text-5xl font-extrabold text-red-400 mb-4 tracking-tight drop-shadow-md">Selamat Datang di <br><span class="block text-red-200 mt-2">SIKEMA</span></h1>
                 <p class="text-lg text-gray-200 leading-relaxed max-w-xl">
