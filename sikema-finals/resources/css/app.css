@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="number"],
+.form-container input[type="date"],
+.form-container textarea,
+.form-container select {
+    background-color: #E2E8F0;
+    color: #2D3748;
+    border: 1px solid #CBD5E0;
+    padding: 10px 15px;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
