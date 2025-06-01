@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Sertifikat;
 
-// Admin
+// Admin Controllers
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\KategoriKegiatanController;
 use App\Http\Controllers\Admin\KegiatanController;
@@ -14,11 +14,12 @@ use App\Http\Controllers\Admin\TAKController as AdminTAKController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PendaftaranKegiatanAdminController;
 
-// User
+// User Controllers
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\KegiatanController as UserKegiatanController;
 use App\Http\Controllers\User\PendaftaranKegiatanController;
-use App\Http\Controllers\User\TAKController as UserTAKController;;
+use App\Http\Controllers\User\TAKController as UserTAKController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,7 +29,6 @@ Route::get('/about', function () {
     return view('about');
 });
 
-// Dashboard
 Route::get('/dashboard', function () {
     if (Auth::check()) {
         $user = Auth::user();
@@ -46,18 +46,24 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
+    // CRUD Kategori Kegiatan
     Route::resource('kategori-kegiatan', KategoriKegiatanController::class);
 
+    // CRUD Manajemen Kegiatan
     Route::resource('kegiatan', KegiatanController::class);
 
+    // Manajemen dan Verifikasi TAK
     Route::resource('tak', AdminTAKController::class)->except(['create', 'store']);
 
+    // Manajemen Pengguna
     Route::resource('users', UserController::class);
 
-    Route::get('/pendaftaran-kegiatan', [PendaftaranKegiatanAdminController::class, 'index'])->name('pendaftaran.index');
-    Route::post('/pendaftaran/{pendaftaran}/approve', [PendaftaranKegiatanAdminController::class, 'approve'])->name('pendaftaran.approve');
-    Route::post('/pendaftaran/{pendaftaran}/reject', [PendaftaranKegiatanAdminController::class, 'reject'])->name('pendaftaran.reject');
-    Route::get('/pendaftaran/{pendaftaran}', [PendaftaranKegiatanAdminController::class, 'show'])->name('pendaftaran.show');
+    // Pendaftaran Kegiatan Admin (Verifikasi Pendaftaran)
+    Route::get('/pendaftaran-kegiatan', [PendaftaranKegiatanAdminController::class, 'index'])->name('pendaftaran-kegiatan.index');
+    Route::post('/pendaftaran-kegiatan/{pendaftaranKegiatan}/verify', [PendaftaranKegiatanAdminController::class, 'verify'])->name('pendaftaran-kegiatan.verify');
+    Route::post('/pendaftaran-kegiatan/{pendaftaranKegiatan}/reject', [PendaftaranKegiatanAdminController::class, 'reject'])->name('pendaftaran-kegiatan.reject');
+    Route::get('/pendaftaran-kegiatan/{pendaftaranKegiatan}', [PendaftaranKegiatanAdminController::class, 'show'])->name('pendaftaran-kegiatan.show');
+
 });
 
 // Rute untuk User
@@ -74,13 +80,13 @@ Route::middleware(['auth', 'user'])->prefix('user')->name('user.')->group(functi
     Route::get('/riwayat-tak', [UserTAKController::class, 'riwayat'])->name('tak.riwayat');
 
     Route::get('/riwayat-kegiatan', [PendaftaranKegiatanController::class, 'riwayatKegiatan'])->name('riwayat-kegiatan.index');
-    Route::get('/sertifikat/{sertifikat}/unduh', [PendaftaranKegiatanController::class, 'unduhSertifikat'])->name('sertifikat.unduh'); 
+    Route::get('/sertifikat/{sertifikat}/unduh', [PendaftaranKegiatanController::class, 'unduhSertifikat'])->name('sertifikat.unduh');
 });
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 require __DIR__.'/auth.php';
