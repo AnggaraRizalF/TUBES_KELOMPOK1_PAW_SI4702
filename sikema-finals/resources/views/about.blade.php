@@ -17,7 +17,7 @@
     <header class="w-full max-w-4xl text-right mb-6">
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">
-            
+
                 <a href="{{ url('/') }}" class="px-5 py-2 text-sm font-medium text-white border border-gray-400 hover:border-gray-200 rounded-full transition duration-300 transform hover:-translate-y-0.5 shadow-md">
                     Beranda
                 </a>
@@ -40,10 +40,10 @@
         @endif
     </header>
 
-    <main class="flex flex-col items-center py-12 px-8 max-w-4xl mx-auto flex-grow text-white"> 
-        <h1 class="text-5xl font-extrabold text-red-400 mb-8 tracking-tight drop-shadow-md text-center">Tentang Kami</h1> 
+    <main class="flex flex-col items-center py-12 px-8 max-w-4xl mx-auto flex-grow text-white">
+        <h1 class="text-5xl font-extrabold text-red-400 mb-8 tracking-tight drop-shadow-md text-center">Tentang Kami</h1>
 
-        <section class="text-lg text-gray-200 leading-relaxed text-center mb-12 max-w-3xl mx-auto"> 
+        <section class="text-lg text-gray-200 leading-relaxed text-center mb-12 max-w-3xl mx-auto">
             <p class="mb-4">
                 Selamat datang di <strong class="text-red-300">SIKEMA</strong>, sebuah inisiatif yang lahir dari visi untuk
                 menyediakan solusi manajemen kegiatan kampus yang inovatif dan mudah diakses bagi mahasiswa <strong class="text-red-300">Telkom University</strong>. Sejak 2023, kami telah
@@ -57,7 +57,7 @@
             </p>
         </section>
 
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mt-8 max-w-4xl mx-auto"> 
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mt-8 max-w-4xl mx-auto">
             {{-- Kotak Visi Kami --}}
             <div class="p-6 rounded-lg border border-gray-700 bg-gray-800 bg-opacity-70 shadow-lg hover:bg-gray-700 hover:border-gray-600 transition-all duration-300"> {{-- Menambahkan hover dan transisi --}}
                 <h2 class="text-2xl font-bold text-red-400 mb-3">Visi Kami</h2>
@@ -68,7 +68,7 @@
             {{-- Kotak Nilai-Nilai Kami --}}
             <div class="p-6 rounded-lg border border-gray-700 bg-gray-800 bg-opacity-70 shadow-lg hover:bg-gray-700 hover:border-gray-600 transition-all duration-300"> {{-- Menambahkan hover dan transisi --}}
                 <h2 class="text-2xl font-bold text-red-400 mb-3">Nilai-Nilai Kami</h2>
-                <ul class="list-disc list-inside text-gray-300 space-y-1"> 
+                <ul class="list-disc list-inside text-gray-300 space-y-1">
                     <li><strong class="text-red-300">Inovasi Berkelanjutan</strong>: Terus mencari cara baru untuk meningkatkan layanan.</li>
                     <li><strong class="text-red-300">Fokus pada Pengguna</strong>: Memprioritaskan kebutuhan dan pengalaman mahasiswa.</li>
                     <li><strong class="text-red-300">Integritas dan Transparansi</strong>: Menjaga kepercayaan melalui operasi yang jujur dan terbuka.</li>
@@ -89,32 +89,32 @@
                 </div>
                 {{-- Anggota Tim 2 --}}
                 <div class="bg-gray-800 bg-opacity-70 p-6 rounded-lg shadow-xl border border-gray-700 transform hover:scale-105 transition-all duration-300">
-                    <img src="{{ asset('images/PhotoA.jpg') }}" alt="Anggota Tim 2" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-red-500 shadow-md"> {{-- Mengubah object-contain kembali menjadi object-cover --}}
+                    <img src="{{ asset('images/Putri.jpg') }}" alt="Anggota Tim 2" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-red-500 shadow-md"> {{-- Mengubah object-contain kembali menjadi object-cover --}}
                     <h3 class="text-xl font-bold text-white mb-1">Aisyah Nur Raihandany Putri</h3>
                     <p class="text-gray-400 text-sm">102022330165</p>
                 </div>
                 {{-- Anggota Tim 3 --}}
                 <div class="bg-gray-800 bg-opacity-70 p-6 rounded-lg shadow-xl border border-gray-700 transform hover:scale-105 transition-all duration-300">
-                    <img src="{{ asset('images/PhotoA.jpg') }}" alt="Anggota Tim 3" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-red-500 shadow-md"> {{-- Mengubah object-contain kembali menjadi object-cover --}}
-                    <h3 class="text-xl font-bold text-white mb-1">Nama Anggota 3</h3>
-                    <p class="text-gray-400 text-sm">Peran / Posisi</p>
+                    <img src="{{ asset('images/Farras.jpg') }}" alt="Anggota Tim 3" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-red-500 shadow-md"> {{-- Mengubah object-contain kembali menjadi object-cover --}}
+                    <h3 class="text-xl font-bold text-white mb-1">M. Farras Kamil</h3>
+                    <p class="text-gray-400 text-sm">102022300407</p>
                 </div>
                 {{-- Anggota Tim 4 --}}
                 <div class="bg-gray-800 bg-opacity-70 p-6 rounded-lg shadow-xl border border-gray-700 transform hover:scale-105 transition-all duration-300">
-                    <img src="{{ asset('images/PhotoA.jpg') }}" alt="Anggota Tim 4" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-red-500 shadow-md"> {{-- Mengubah object-contain kembali menjadi object-cover --}}
-                    <h3 class="text-xl font-bold text-white mb-1">Nama Anggota 4</h3>
-                    <p class="text-gray-400 text-sm">Peran / Posisi</p>
+                    <img src="{{ asset('images/.jpg') }}" alt="Anggota Tim 4" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-red-500 shadow-md"> {{-- Mengubah object-contain kembali menjadi object-cover --}}
+                    <h3 class="text-xl font-bold text-white mb-1">Faadhil Al Ghifari</h3>
+                    <p class="text-gray-400 text-sm">102022300425</p>
                 </div>
                 {{-- Anggota Tim 5 --}}
                 <div class="bg-gray-800 bg-opacity-70 p-6 rounded-lg shadow-xl border border-gray-700 transform hover:scale-105 transition-all duration-300">
-                    <img src="{{ asset('images/PhotoA.jpg') }}" alt="Anggota Tim 5" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-red-500 shadow-md"> {{-- Mengubah object-contain kembali menjadi object-cover --}}
-                    <h3 class="text-xl font-bold text-white mb-1">Nama Anggota 5</h3>
-                    <p class="text-gray-400 text-sm">Peran / Posisi</p>
+                    <img src="{{ asset('images/Nabil.jpg') }}" alt="Anggota Tim 5" class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-red-500 shadow-md"> {{-- Mengubah object-contain kembali menjadi object-cover --}}
+                    <h3 class="text-xl font-bold text-white mb-1">Nabil Athala</h3>
+                    <p class="text-gray-400 text-sm">102022300</p>
                 </div>
             </div>
         </section>
 
-        <div class="mt-12 text-center max-w-xl mx-auto"> 
+        <div class="mt-12 text-center max-w-xl mx-auto">
             <p class="text-lg text-gray-300 font-medium mb-4">
                 Kami sangat senang Anda telah berkunjung. Jika ada pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami!
             </p>
