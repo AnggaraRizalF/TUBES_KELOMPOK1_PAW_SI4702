@@ -1,7 +1,4 @@
 <x-app-layout>
-
-
-
     <x-slot name="header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 bg-gray-800 rounded-lg shadow-lg text-center">
             <h2 class="font-semibold text-2xl text-white leading-tight">
@@ -9,18 +6,12 @@
             </h2>
         </div>
     </x-slot>
-
-
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-8">
                 <p class="text-xl font-medium text-gray-200 mb-8">Selamat datang, <span class="font-bold text-red-500">{{ Auth::user()->name }}!</span></p> {{-- Nama user menggunakan Telkom Red --}}
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 mb-10">
-
-
-                    {{--  1: Total Poin TAK --}}
 
                     <div class="bg-slate-900 shadow-lg rounded-xl p-6 border-b-4 border-emerald-500 flex flex-col justify-between hover:shadow-2xl transform hover:-translate-y-1 transition duration-300"> {{-- UBAH: bg-gray-900 jadi bg-slate-900 --}}
                         <div>
@@ -30,9 +21,6 @@
                         <p class="text-xs text-gray-500 mt-4">Pembaruan terakhir: Hari ini</p>
                     </div>
 
-
-                    {{-- 2: Kegiatan Didaftar --}}
-
                     <div class="bg-slate-900 shadow-lg rounded-xl p-6 border-b-4 border-blue-500 flex flex-col justify-between hover:shadow-2xl transform hover:-translate-y-1 transition duration-300"> {{-- UBAH: bg-gray-900 jadi bg-slate-900 --}}
                         <div>
                             <h3 class="text-base font-semibold text-gray-300 mb-2">Kegiatan Didaftar</h3>
@@ -41,9 +29,6 @@
                         <p class="text-xs text-gray-500 mt-4">Anda memiliki {{ $totalKegiatanDidaftar ?? '0' }} kegiatan terdaftar</p>
                     </div>
 
-
-                    {{-- 3: TAK Menunggu Verifikasi --}}
-
                     <div class="bg-slate-900 shadow-lg rounded-xl p-6 border-b-4 border-amber-500 flex flex-col justify-between hover:shadow-2xl transform hover:-translate-y-1 transition duration-300"> {{-- UBAH: bg-gray-900 jadi bg-slate-900 --}}
                         <div>
                             <h3 class="text-base font-semibold text-gray-300 mb-2">TAK Menunggu Verifikasi</h3>
@@ -51,9 +36,6 @@
                         </div>
                         <p class="text-xs text-gray-500 mt-4">Segera periksa status verifikasi Anda</p>
                     </div>
-
-
-                    {{-- 4: Kegiatan Terbaru Didaftar --}}
 
                     <div class="bg-slate-900 shadow-lg rounded-xl p-6 border-b-4 border-indigo-500 flex flex-col justify-between hover:shadow-2xl transform hover:-translate-y-1 transition duration-300"> {{-- UBAH: bg-gray-900 jadi bg-slate-900 --}}
                         <div>
@@ -80,12 +62,6 @@
                 <div class="mt-8">
                     <h3 class="text-2xl font-semibold text-gray-200 border-b-2 border-gray-700 pb-4 mb-6">Akses Cepat</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-
-                <div class="mt-8">
-                    <h3 class="text-2xl font-semibold text-gray-200 border-b-2 border-gray-700 pb-4 mb-6">Akses Cepat</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
                         <a href="{{ route('user.kegiatan.index') }}" class="flex items-center p-4 bg-gray-700 rounded-lg shadow-md text-gray-200 font-medium hover:bg-gray-600 hover:text-white transform hover:-translate-y-1 transition duration-200">
                             <svg class="w-6 h-6 text-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A1 1 0 009.172 3H4a2 2 0 00-2 2zm7 5a1 1 0 10-2 0v4a1 1 0 102 0v-4z" clip-rule="evenodd"></path></svg>
                             <span>Cari & Daftar Kegiatan</span>
