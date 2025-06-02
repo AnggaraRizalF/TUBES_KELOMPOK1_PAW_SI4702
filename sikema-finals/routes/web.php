@@ -2,14 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
-use Illuminate\Support\Facades\Auth; // Penting: Import Auth facade
-use Illuminate\Support\Facades\Storage; // Penting: Jika digunakan di controller yang diakses dari sini
-use App\Models\Sertifikat; // Penting: Jika digunakan di controller yang diakses dari sini
-
-// Admin Controllers
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController; // Alias untuk Dashboard Admin
-=======
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Sertifikat;
@@ -23,16 +15,10 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PendaftaranKegiatanAdminController;
 
 // User Controllers
-
-use App\Http\Controllers\User\DashboardController as UserDashboardController; // Alias untuk Dashboard User
-use App\Http\Controllers\User\KegiatanController as UserKegiatanController; // Untuk user melihat kegiatan
-use App\Http\Controllers\User\PendaftaranKegiatanController;
-use App\Http\Controllers\User\TAKController as UserTAKController;;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\KegiatanController as UserKegiatanController;
 use App\Http\Controllers\User\PendaftaranKegiatanController;
 use App\Http\Controllers\User\TAKController as UserTAKController;
-
 
 
 Route::get('/', function () {
@@ -40,23 +26,14 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/about', function () {
-    return view('about'); // Mengarahkan ke file resources/views/about.blade.php
     return view('about');
-
 });
 
-// Dashboard Umum (akan diarahkan berdasarkan role setelah login)
 Route::get('/dashboard', function () {
     if (Auth::check()) {
-
-        $user = Auth::user(); // Ambil objek user yang sedang login
-
-        if ($user->isAdmin()) { // Error Anda sebelumnya ada di sini
-
         $user = Auth::user();
 
         if ($user->isAdmin()) {
-
             return redirect()->route('admin.dashboard');
         } else {
             return redirect()->route('user.dashboard');
@@ -76,19 +53,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('kegiatan', KegiatanController::class);
 
     // Manajemen dan Verifikasi TAK
-    Route::resource('tak', AdminTAKController::class)->except(['create', 'store']); // Admin tidak membuat TAK baru, hanya mengelola
-    // Pastikan alias AdminTAKController sudah diimport:
-
-    // Manajemen Pengguna
-    Route::resource('users', UserController::class); // Tambahkan ini
-
-    // Rute untuk Verifikasi Pendaftaran Kegiatan
-    Route::get('/pendaftaran-kegiatan', [PendaftaranKegiatanAdminController::class, 'index'])->name('pendaftaran.index');
-    Route::post('/pendaftaran/{pendaftaran}/approve', [PendaftaranKegiatanAdminController::class, 'approve'])->name('pendaftaran.approve');
-    Route::post('/pendaftaran/{pendaftaran}/reject', [PendaftaranKegiatanAdminController::class, 'reject'])->name('pendaftaran.reject');
-    // Jika Anda ingin melihat detail pendaftaran
-    Route::get('/pendaftaran/{pendaftaran}', [PendaftaranKegiatanAdminController::class, 'show'])->name('pendaftaran.show');
-
     Route::resource('tak', AdminTAKController::class)->except(['create', 'store']);
 
     // Manajemen Pengguna
@@ -100,32 +64,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/pendaftaran-kegiatan/{pendaftaranKegiatan}/reject', [PendaftaranKegiatanAdminController::class, 'reject'])->name('pendaftaran-kegiatan.reject');
     Route::get('/pendaftaran-kegiatan/{pendaftaranKegiatan}', [PendaftaranKegiatanAdminController::class, 'show'])->name('pendaftaran-kegiatan.show');
 
-
 });
 
 // Rute untuk User
 Route::middleware(['auth', 'user'])->prefix('user')->name('user.')->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
 
-    // Kategori kegiatan (user bisa cek kegiatan yang ada di bulan ini)
-    Route::get('/kegiatan', [UserKegiatanController::class, 'index'])->name('kegiatan.index');
-    Route::get('/kegiatan/{kegiatan}', [UserKegiatanController::class, 'show'])->name('kegiatan.show');
-
-    // Pendaftaran Kegiatan
-    Route::post('/kegiatan/{kegiatan}/daftar', [PendaftaranKegiatanController::class, 'store'])->name('kegiatan.daftar');
-    Route::get('/pendaftaran', [PendaftaranKegiatanController::class, 'index'])->name('pendaftaran.index'); // Histori pendaftaran
-
-    // Mahasiswa dapat menginput TAK
-    Route::resource('tak', UserTAKController::class)->except(['edit', 'update']); // Admin yang update status
-    Route::get('/riwayat-tak', [UserTAKController::class, 'riwayat'])->name('tak.riwayat'); // Histori TAK
-
-    // Histori atau riwayat kegiatan yang dapat mengunduh sertifikat
-    Route::get('/riwayat-kegiatan', [PendaftaranKegiatanController::class, 'riwayatKegiatan'])->name('riwayat-kegiatan.index');
-    Route::get('/sertifikat/{sertifikat}/unduh', [PendaftaranKegiatanController::class, 'unduhSertifikat'])->name('sertifikat.unduh'); // Asumsi sertifikat terkait pendaftaran
-});
-
-
-// Rute standar Laravel Breeze (JANGAN DIHAPUS)
     Route::get('/kegiatan', [UserKegiatanController::class, 'index'])->name('kegiatan.index');
     Route::get('/kegiatan/{kegiatan}', [UserKegiatanController::class, 'show'])->name('kegiatan.show');
 
